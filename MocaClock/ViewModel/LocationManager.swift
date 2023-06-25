@@ -27,7 +27,6 @@ final class LocationManager:  NSObject, ObservableObject {
         locationManager.delegate = self
 //        locationManager.requestLocation()
     }
-    
 }
 
 extension LocationManager: CLLocationManagerDelegate {
