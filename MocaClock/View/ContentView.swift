@@ -19,9 +19,11 @@ import CoreLocationUI
 //MARK: -timezone을 이용해서 다른나라의 시간을 가져올수 있을듯
 
 
+
+
 struct ContentView: View {
-    @State var searchInput = ""
-    @State var isSearching = false
+    @State private var searchInput = ""
+    @State private var isSearching = false
     @StateObject var Time = Scheduler()
     @StateObject var locationManager = LocationManager()
     
@@ -32,7 +34,7 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     CurrentTimeView(Time: Time).environmentObject(locationManager)
                     Spacer()
-                    TimeGapBar()
+                    TimeGapBar(timeGap: Time.timeGap)
                     GlobalTimeView(Time: Time)
                     ChangeLocationButton().sheet(isPresented: $isSearching) {
                         SearchView().presentationDragIndicator(.visible)
@@ -44,17 +46,33 @@ struct ContentView: View {
         }
         .onAppear {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                self.Time.date = Date()
+                Time.date = Date()
+                Time.timezone = Time.currentSelectedGlobalTime
+                Time.timeGap = Time.getTimeGap(by: Time.timezone)
             }
         }
     }
     
-    func TimeGapBar() -> some View {
+    //이런경우는 어떻게 분기를 나누느게 좋을까요?
+    func TimeGapBar(timeGap: Int) -> some View {
         HStack(alignment: .bottom) {
-            Rectangle().frame(width: 2)
-                .foregroundColor(.clear)
-                .background(LinearGradient(colors: [Color.clear, Color.white], startPoint: .top, endPoint: .bottom))
-            Text("- 8시간").padding(.leading)
+            if timeGap > 0 {
+                Rectangle().frame(width: 2)
+                    .foregroundColor(.clear)
+                    .background(LinearGradient(colors: [Color.clear, Color.white], startPoint: .top, endPoint: .bottom))
+            }
+            else if timeGap == 0 {
+                Rectangle().frame(width: 2)
+                    .foregroundColor(.clear)
+                    .background(LinearGradient(colors: [Color.clear, Color.white], startPoint: .top, endPoint: .bottom))
+            }
+            else {
+                Rectangle().frame(width: 2)
+                    .foregroundColor(.clear)
+                    .background(LinearGradient(colors: [Color.white, Color.clear], startPoint: .top, endPoint: .bottom))
+            }
+            Text("\(timeGap) hour").padding(.leading)
+
         }.padding(.leading)
     }
     
