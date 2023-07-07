@@ -14,10 +14,11 @@ struct CurrentTimeView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(Time.print(by: .currentTime))
+                Text(Time.printCurrentTime(format: TimeFormat.time))
                     .font(.system(size: 60))
                     .bold()
-                Text([Time.print(by: .currentMonth), Time.print(by: .currentDate), Time.print(by: .currentWeek)].joined(separator: " "))
+                    .padding(.bottom, 3)
+                Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
             }
             Spacer()
             HStack {

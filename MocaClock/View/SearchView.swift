@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+//America, Africa, Antartica, Asia, Australia, Europe, Indian, Pacific
+
+
 struct SearchView: View {
     @State private var searchText = ""
     @State private var isEditing = false
+    @State private var continents = Set<String>()
+    @State private var countries: [[String]] = []
+    @State private var America: [String] = []
+    
     
     var body: some View {
         VStack {
@@ -17,16 +24,15 @@ struct SearchView: View {
                 self.isEditing = true
             }.padding()
             List {
-                Text("1")
-                Text("1")
-                Text("1")
+                Text("hi")
             }.onAppear {
-                for timeZone in TimeZone.knownTimeZoneIdentifiers {
-                    let time = timeZone.split(separator: "/")
-                    if time.count >= 2 {
-                        for idx in 1..<time.endIndex {
-                            print(time[idx])
-                        }
+                //                for timeZone in TimeZone.knownTimeZoneIdentifiers {
+                //                    print(timeZone)
+                //                    print(timeZone.split(separator: "/"))
+                //                }
+                ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) {
+                    if let continent = $0.components(separatedBy: "/").first {
+                        
                     }
                 }
             }
@@ -57,5 +63,11 @@ struct SearchView: View {
                     }
                 }
             }
+    }
+}
+
+struct SearchView_Preview: PreviewProvider {
+    static var previews: some View {
+        SearchView()
     }
 }

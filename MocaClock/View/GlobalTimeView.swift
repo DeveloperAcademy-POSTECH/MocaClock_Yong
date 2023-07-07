@@ -15,11 +15,12 @@ struct GlobalTimeView: View {
     @ObservedObject var Time: Scheduler
     
     var body: some View {
-        VStack {
-            Text(Time.print(by: .globalTime))
+        VStack(alignment: .leading) {
+            Text(Time.printGlobalTime(by: Time.timezone, format: TimeFormat.time))
                 .font(.system(size: 60))
                 .bold()
-            Text([Time.print(by: .globalMonth), Time.print(by: .globalDate), Time.print(by: .globalWeek)].joined(separator: " "))
+                .padding(.bottom, 3)
+            Text([Time.printGlobalTime(by: Time.timezone, format: TimeFormat.month), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.date), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.week)].joined(separator: " "))
                 .font(.system(size: 16))
             HStack {
                 Image("location_on")
@@ -27,9 +28,11 @@ struct GlobalTimeView: View {
                     .scaledToFit()
                     .frame(width: 20,height: 20)
                     .bold()
-                Text("현재 위치")
-                    .font(.system(size: 20))
-                    .bold()
+                ForEach(Time.timezone.split(separator: "/"), id: \.self) {
+                    Text($0)
+                }
+                .frame(height: 20)
+                .bold()
             }
         }
     }
