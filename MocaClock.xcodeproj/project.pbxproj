@@ -23,8 +23,8 @@
 		0D214DB32A2C833500F46ED2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DB22A2C833500F46ED2 /* LocationManager.swift */; };
 		0D214DB52A2DEB1300F46ED2 /* Ext+CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */; };
 		0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */; };
-		0D214DFA2A47029300F46ED2 /* TimeFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DF92A47029300F46ED2 /* TimeFomatter.swift */; };
 		0D214DFC2A4714DA00F46ED2 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */; };
+		0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2C5282A588C470028BCA3 /* TimeFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 		0D214DB22A2C833500F46ED2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CLPlacemark.swift"; sourceTree = "<group>"; };
 		0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTimeView.swift; sourceTree = "<group>"; };
-		0D214DF92A47029300F46ED2 /* TimeFomatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFomatter.swift; sourceTree = "<group>"; };
 		0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		0DF2C5282A588C470028BCA3 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 			children = (
 				0D214DB22A2C833500F46ED2 /* LocationManager.swift */,
 				0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */,
-				0D214DF92A47029300F46ED2 /* TimeFomatter.swift */,
+				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,9 +333,9 @@
 				0D214DAA2A2B848000F46ED2 /* Ext+UIColor.swift in Sources */,
 				0D214D762A2B7D0300F46ED2 /* MocaClockApp.swift in Sources */,
 				0D214DB12A2BC54C00F46ED2 /* CurrentTimeView.swift in Sources */,
+				0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */,
 				0D214DAD2A2B857900F46ED2 /* Ext+Color.swift in Sources */,
 				0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */,
-				0D214DFA2A47029300F46ED2 /* TimeFomatter.swift in Sources */,
 				0D214DB32A2C833500F46ED2 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,7 +498,7 @@
 				DEVELOPMENT_TEAM = YPDFZL299R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MocaClock/Info.plist;
+				INFOPLIST_FILE = "/Users/choejin-yong/Desktop/MocaClock_Yong/MocaClock/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보를 허용합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치정보를 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -530,7 +530,7 @@
 				DEVELOPMENT_TEAM = YPDFZL299R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MocaClock/Info.plist;
+				INFOPLIST_FILE = "/Users/choejin-yong/Desktop/MocaClock_Yong/MocaClock/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보를 허용합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치정보를 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

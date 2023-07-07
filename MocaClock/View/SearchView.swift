@@ -26,14 +26,9 @@ struct SearchView: View {
             List {
                 Text("hi")
             }.onAppear {
-                //                for timeZone in TimeZone.knownTimeZoneIdentifiers {
-                //                    print(timeZone)
-                //                    print(timeZone.split(separator: "/"))
-                //                }
-                ForEach(TimeZone.knownTimeZoneIdentifiers, id: \.self) {
-                    if let continent = $0.components(separatedBy: "/").first {
-                        
-                    }
+                for timeZone in TimeZone.knownTimeZoneIdentifiers {
+                    print(timeZone)
+                    print(timeZone.split(separator: "/"))
                 }
             }
         }
