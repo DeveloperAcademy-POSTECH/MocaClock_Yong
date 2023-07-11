@@ -180,6 +180,7 @@
 		0D214DA72A2B844800F46ED2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 			children = (
 				0D214DB22A2C833500F46ED2 /* LocationManager.swift */,
 				0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */,
-				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

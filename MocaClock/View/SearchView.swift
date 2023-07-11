@@ -7,33 +7,51 @@
 
 import SwiftUI
 
-//America, Africa, Antartica, Asia, Australia, Europe, Indian, Pacific
+
+#warning("Todo - 1. 서칭 기능추가")
+#warning("Todo - 2. 각 섹션에 들어갈 timezone 세팅 어떻게 햐애할지 전혀모르겟음")
+
+enum Continents: String, CaseIterable {
+    case Africa, America, Antarctica, Asia, Atlantic, Australia, GMT, Europe, Indian, Pacific
+}
 
 
 struct SearchView: View {
     @State private var searchText = ""
     @State private var isEditing = false
-    @State private var continents = Set<String>()
-    @State private var countries: [[String]] = []
-    @State private var America: [String] = []
-    
+    @State private var sections = Continents.allCases
+    @State private var timezone:[String:String] = [:]
     
     var body: some View {
-        VStack {
-            SearchField().onTapGesture {
-                self.isEditing = true
-            }.padding()
-            List {
-                Text("hi")
-            }.onAppear {
-                for timeZone in TimeZone.knownTimeZoneIdentifiers {
-                    print(timeZone)
-                    print(timeZone.split(separator: "/"))
+        List {
+            ForEach(sections, id: \.self) { section in
+                Section {
+                    Text("hi")
+                } header: {
+                    Text(section.rawValue)
+                        .font(Font.title2)
+                        .foregroundColor(Color.black)
+                        .bold()
                 }
             }
-        }
+        }.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .onAppear {
+                for time in TimeZone.knownTimeZoneIdentifiers {
+                    let citys: [String] = time.components(separatedBy: "/")
+                    switch citys.count {
+                    case 1:
+                        citys[0]
+                        print(citys[0])
+                    case 2:
+                        print(time.components(separatedBy: "/")[1])
+                    case 3:
+                        print("\(time.components(separatedBy: "/")[1]),  \(time.components(separatedBy: "/")[2])")
+                    default:
+                        print("")
+                    }
+                }
+            }
     }
-    
     func SearchField() -> some View {
         TextField("Search here...", text: $searchText)
             .padding(10)

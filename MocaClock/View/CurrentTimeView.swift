@@ -7,35 +7,37 @@
 
 import SwiftUI
 
+#warning("Todo - 모카랑 이야기해서 뷰 좀 바꾸자")
+
 struct CurrentTimeView: View {
     @ObservedObject var Time: Scheduler
     @EnvironmentObject var locationManager: LocationManager
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .trailing) {
                 Text(Time.printCurrentTime(format: TimeFormat.time))
                     .font(.system(size: 60))
                     .bold()
                     .padding(.bottom, 3)
                 Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
+                HStack {
+                    Image("location_on")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16,height: 16)
+                        .font(.system(size:16, weight: .light))
+                    Text("\(locationManager.currentPlacemark?.country ?? "")")
+                        .font(.system(size: 16))
+                        .onAppear {
+                            locationManager.requestLocation()
+                        }
+                    Text("\(locationManager.currentPlacemark?.administrativeArea ?? "")")
+                        .font(.system(size: 16))
+                }
             }
-            Spacer()
-            HStack {
-                Image("location_on")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20,height: 20)
-                    .bold()
-                Text("\(locationManager.latitude), \(locationManager.longitude),\(locationManager.placeName)")
-                    .font(.system(size: 20))
-                    .bold()
-                    .task {
-                        await locationManager.forwardGeocoding(address: "Deagu")
-                        await locationManager.reverseGeocoding(latitude: locationManager.latitude, longitude: locationManager.longitude)
-                    }
-            }.offset(y: 40)
         }
     }
 }
+
 

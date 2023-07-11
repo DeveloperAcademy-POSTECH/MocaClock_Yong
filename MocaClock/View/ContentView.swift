@@ -10,15 +10,8 @@ import CoreData
 import CoreLocation
 import CoreLocationUI
 
-#warning("해야할일")
-#warning("1. 현재 위치 받아오기")
-#warning("2. 설정된 국가의 날짜, 요일, 그리고 위치 잡아오기")
-#warning("3. 설정된 국가의 시간차에 따라서 line 높이 다르게 하기")
-#warning("4. 시간차에 따라서 배경색 다르게 변경되도록 설정하기")
-//MARK: -국가검색은 따로 sheet로 빼둿음, 해당 뷰에서 textfiled를 이용해서 검색하고 하위 테이블뷰 리로딩
-//MARK: -timezone을 이용해서 다른나라의 시간을 가져올수 있을듯
-
-
+#warning("Todo - 1. 설정된 국가의 시간차에 따라서 line 높이 다르게 하기")
+#warning("Todo - 2. 시간차에 따라서 배경색 다르게 변경되도록 설정하기 ?? 여기 정책에 대해서 생각해보기")
 
 
 struct ContentView: View {
@@ -31,16 +24,17 @@ struct ContentView: View {
         ZStack {
             BackGround()
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .trailing) {
                     CurrentTimeView(Time: Time).environmentObject(locationManager)
                     Spacer()
                     TimeGapBar(timeGap: Time.timeGap)
                     GlobalTimeView(Time: Time)
-                    ChangeLocationButton().sheet(isPresented: $isSearching) {
+                    ChangeLocationButton()
+                        .sheet(isPresented: $isSearching) {
                         SearchView().presentationDragIndicator(.visible)
                     }
+                    Spacer()
                 }.padding()
-                Spacer()
             }.foregroundColor(.white)
             .padding(.leading, 10)
         }
@@ -79,7 +73,7 @@ struct ContentView: View {
     func BackGround() -> some View {
         VStack(spacing: 0){
             Color(uiColor: Color.darkBlue)
-            LinearGradient(colors: [Color(uiColor: Color.darkBlue), Color(uiColor: Color.burgundy)], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            LinearGradient(colors: [Color(uiColor: Color.darkBlue), Color(uiColor: Color.orange)], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
         }.ignoresSafeArea()
     }
     
