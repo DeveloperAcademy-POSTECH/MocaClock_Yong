@@ -11,8 +11,8 @@ import SwiftUI
 final class Scheduler: ObservableObject {
     @Published var date = Date()
     @Published var timeGap = 0
-    @Published var timezone = "Asia/Tokyo"
-    @AppStorage("currentSelectedGlobalTime") var currentSelectedGlobalTime = "Asia/Tokyo"
+    @Published var timezone = "Africa/Harare"
+    @AppStorage("currentSelectedGlobalTime") var currentSelectedGlobalTime = "Africa/Harare"
     
     
     func printGlobalTime(by timezone: String, format: TimeFormat) -> String {

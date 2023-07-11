@@ -17,9 +17,9 @@ struct CurrentTimeView: View {
         HStack {
             VStack(alignment: .trailing) {
                 Text(Time.printCurrentTime(format: TimeFormat.time))
-                    .font(.system(size: 60))
+                    .font(.system(size: 75))
                     .bold()
-                    .padding(.bottom, 3)
+//                    .padding(.bottom, 3)
                 Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
                 HStack {
                     Image("location_on")
@@ -36,7 +36,7 @@ struct CurrentTimeView: View {
                         .font(.system(size: 16))
                 }
             }
-        }
+        }.padding(.trailing, 10)
     }
 }
 
