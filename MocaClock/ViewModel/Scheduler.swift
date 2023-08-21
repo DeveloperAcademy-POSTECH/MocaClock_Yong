@@ -11,9 +11,8 @@ import SwiftUI
 final class Scheduler: ObservableObject {
     @Published var date = Date()
     @Published var timeGap = 0
-    @Published var timezone = "Africa/Harare"
-    @AppStorage("currentSelectedGlobalTime") var currentSelectedGlobalTime = "Africa/Harare"
-    
+    @Published var timezone = "Africa/Algiers"
+    @AppStorage("currentSelectedGlobalTime") var currentSelectedGlobalTime = "Africa/Algiers"
     
     func printGlobalTime(by timezone: String, format: TimeFormat) -> String {
         let timezone = TimeZone(identifier: timezone)
@@ -21,9 +20,9 @@ final class Scheduler: ObservableObject {
         formatter.timeZone = timezone
         formatter.dateFormat = format.form
         switch format.self {
-        case .date: return "\(formatter.string(from: date))일"
+        case .date: return "\(formatter.string(from: date))"
         case .hour: return formatter.string(from: date)
-        case .month: return "\(formatter.string(from: date))월"
+        case .month: return "\(formatter.string(from: date))"
         case .time: return formatter.string(from: date)
         case .week: return formatter.string(from: date)
         }
@@ -33,9 +32,9 @@ final class Scheduler: ObservableObject {
         let formatter = DateFormatter()
         formatter.dateFormat = format.form
         switch format.self {
-        case .date: return "\(formatter.string(from: date))일"
+        case .date: return "\(formatter.string(from: date))"
         case .hour: return formatter.string(from: date)
-        case .month: return "\(formatter.string(from: date))월"
+        case .month: return "\(formatter.string(from: date))"
         case .time: return formatter.string(from: date)
         case .week: return formatter.string(from: date)
         }
@@ -45,7 +44,7 @@ final class Scheduler: ObservableObject {
         let current = printCurrentTime(format: .hour)
         let global = printGlobalTime(by: timezone, format: .hour)
         if let currentTime = Int(current), let globalTime = Int(global) {
-            return currentTime - globalTime
+            return globalTime - currentTime
         }
         else {
             return 0

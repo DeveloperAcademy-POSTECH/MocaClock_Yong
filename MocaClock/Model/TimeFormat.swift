@@ -12,12 +12,11 @@ enum TimeFormat: CaseIterable {
 }
 
 extension TimeFormat {
-
     var form: String {
         switch self {
         case .date: return "dd"
         case .hour: return "HH"
-        case .month: return "MM"
+        case .month: return "MMMM"
         case .time: return "HH:mm"
         case .week: return "EEEE"
         }

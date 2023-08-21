@@ -9,8 +9,6 @@ import Foundation
 import CoreLocation
 import MapKit
 
-#warning("설정값에 따라서 다른 상태 다르게 처리해줌")
-
 
 final class LocationManager:  NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
@@ -21,7 +19,6 @@ final class LocationManager:  NSObject, ObservableObject, CLLocationManagerDeleg
     private let locationManager = CLLocationManager()
     
     override init() {
-        // 상태에 따라서 화면 상태를 띄워주어야 하는 디테일 일단 넘어감
         authorizationStatus = locationManager.authorizationStatus
         super.init()
         locationManager.delegate = self
@@ -49,8 +46,9 @@ extension LocationManager {
 
     func fetchCountryAndCity(for location: CLLocation?) {
         guard let location = location else { return }
+        let local: Locale = Locale(identifier: "en_us")
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+        geocoder.reverseGeocodeLocation(location, preferredLocale: local) { (placemarks, error) in
             self.currentPlacemark = placemarks?.first
         }
     }

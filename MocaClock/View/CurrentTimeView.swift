@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-#warning("Todo - 모카랑 이야기해서 뷰 좀 바꾸자")
-
 struct CurrentTimeView: View {
     @ObservedObject var Time: Scheduler
     @EnvironmentObject var locationManager: LocationManager
@@ -17,23 +15,23 @@ struct CurrentTimeView: View {
         HStack {
             VStack(alignment: .trailing) {
                 Text(Time.printCurrentTime(format: TimeFormat.time))
-                    .font(.system(size: 75))
+                    .font(.setMainClockFont())
                     .bold()
-//                    .padding(.bottom, 3)
                 Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
+                    .font(.setBodyFont())
                 HStack {
                     Image("location_on")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 16,height: 16)
-                        .font(.system(size:16, weight: .light))
-                    Text("\(locationManager.currentPlacemark?.country ?? "")")
-                        .font(.system(size: 16))
+                        .font(.setLocationFont())
+                    Text("\(locationManager.currentPlacemark?.country ?? "reset the Location")")
+                        .font(.setBodyFont())
                         .onAppear {
                             locationManager.requestLocation()
                         }
-                    Text("\(locationManager.currentPlacemark?.administrativeArea ?? "")")
-                        .font(.system(size: 16))
+                    Text("\(locationManager.currentPlacemark?.locality ?? "")")
+                        .font(.setBodyFont())
                 }
             }
         }.padding(.trailing, 10)

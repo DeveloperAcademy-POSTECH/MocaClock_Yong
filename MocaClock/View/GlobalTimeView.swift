@@ -17,18 +17,19 @@ struct GlobalTimeView: View {
     var body: some View {
         VStack(alignment: .trailing) {
             Text(Time.printGlobalTime(by: Time.timezone, format: TimeFormat.time))
-                .font(.system(size: 75))
+                .font(.setMainClockFont())
                 .bold()
             Text([Time.printGlobalTime(by: Time.timezone, format: TimeFormat.month), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.date), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.week)].joined(separator: " "))
-                .font(.system(size: 16))
+                .font(.setBodyFont())
             HStack {
                 Image("location_on")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 16,height: 16)
-                    .font(.system(size:16, weight: .light))
+                    .font(.setLocationFont())
                 ForEach(Time.timezone.split(separator: "/"), id: \.self) {
                     Text($0)
+                        .font(.setBodyFont())
                 }
                 .frame(height: 20)
             }

@@ -10,15 +10,13 @@ import CoreData
 import CoreLocation
 import CoreLocationUI
 
-#warning("Todo - 1. 설정된 국가의 시간차에 따라서 line 높이 다르게 하기")
-#warning("Todo - 2. 시간차에 따라서 배경색 다르게 변경되도록 설정하기 ?? 여기 정책에 대해서 생각해보기")
-
 
 struct ContentView: View {
     @State private var searchInput = ""
     @State private var isSearching = false
     @State private var isAnimation = false
-    @StateObject var Time = Scheduler()
+    @State private var isShowText = false
+    @StateObject var schedular = Scheduler()
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
@@ -26,87 +24,166 @@ struct ContentView: View {
             BackGround()
             HStack {
                 VStack(alignment: .trailing) {
-                    CurrentTimeView(Time: Time).environmentObject(locationManager)
+                    CurrentTimeView(Time: schedular).environmentObject(locationManager)
                         .padding(.bottom)
-//                    Spacer()
-                    TimeGapBar(timeGap: Time.timeGap)
-                    GlobalTimeView(Time: Time)
+                    ZStack {
+                        TimeGapBar
+                        TimePointer
+                        .padding(.vertical)
+                    }
+                    GlobalTimeView(Time: schedular)
                     ChangeLocationButton()
                         .sheet(isPresented: $isSearching) {
-                        SearchView().presentationDragIndicator(.visible)
+                            SearchView(isSearching: $isSearching)
+                                .environmentObject(schedular)
+                                .presentationDragIndicator(.visible)
+                                .presentationDetents([.height(UIScreen.deviceHeight * 0.87)])
+                                .presentationBackground(.ultraThinMaterial)
                     }
                     Spacer()
                 }.padding()
             }.foregroundColor(.white)
-//            .padding(.trailing, 10)
         }
         .onAppear {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                Time.date = Date()
+                schedular.date = Date()
             }
-            Time.timezone = Time.currentSelectedGlobalTime
-            Time.timeGap = Time.getTimeGap(by: Time.timezone)
-            isAnimation.toggle()
+            schedular.timezone = schedular.currentSelectedGlobalTime
+            schedular.timeGap = schedular.getTimeGap(by: schedular.timezone)
+            isAnimation = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                isShowText = true
+            }
+        }
+        .onChange(of: isSearching) { _ in
+            if isSearching {
+                isAnimation = false
+                isShowText = false
+            }
+            else {
+                isAnimation = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    isShowText = true
+                }
+            }
         }
     }
     
     //이런경우는 어떻게 분기를 나누느게 좋을까요?
     // timeGap 에 따라서 현재 화면의 비율에서 % 별로 + - 로 이동해야하는데 애니메이션이 지금 이상하게 걸림.
     // 여기 지오메트릭 리더 이상하게 고ㅓㄹ림. 문제.
-    func TimeGapBar(timeGap: Int) -> some View {
-        
+    var TimePointer: some View {
+        GeometryReader { proxy in
+            let height = proxy.size.height
+            let width = proxy.size.width
+            let arrowHeight = height * 0.44 + (height * Double(schedular.timeGap) / 40)
+            Image("arrow")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(Color.defaultWhite)
+                .offset(x: width * 0.965,y: isAnimation ? arrowHeight : height * 0.44)
+                .animation(.linear(duration: 0.8), value: isAnimation)
+            Text("\(showTimeGapSign())\(schedular.timeGap) hours")
+                .offset(x: width * 0.74,y: arrowHeight)
+                .opacity(isShowText ? 1 : 0)
+                .animation(.linear(duration: 1), value: isShowText)
+                .font(.setBodyFont())
+        }.padding()
+    }
+    
+
+    var TimeGapBar: some View {
         HStack(alignment: .center) {
             Spacer()
-            GeometryReader { proxy in
-                let width = proxy.size.width
-                let height = proxy.size.height
-                Text("\(timeGap) hour")
-                    .offset(x: width * (2.9/4), y: isAnimation ? (height * 0.5) : (height * 0.5))
-                    .padding(.trailing)
-                    .animation(.easeIn(duration: 2), value: isAnimation)
-                    
-                if timeGap > 0 {
+                if schedular.timeGap > 0 {
                     Rectangle().frame(width: 2)
                         .foregroundColor(.clear)
                         .background(LinearGradient(colors: [Color.clear, Color.white], startPoint: .top, endPoint: .bottom))
-                        .offset(x: width * (3.9/4))
                 }
-                else if timeGap == 0 {
+                else if schedular.timeGap == 0 {
                     Rectangle().frame(width: 2)
                         .foregroundColor(.clear)
                         .background(LinearGradient(colors: [Color.clear, Color.white], startPoint: .top, endPoint: .bottom))
-                        .offset(x: width * (3.9/4))
                 }
                 else {
                     Rectangle().frame(width: 2)
                         .foregroundColor(.clear)
                         .background(LinearGradient(colors: [Color.white, Color.clear], startPoint: .top, endPoint: .bottom))
-                        .offset(x: width * (3.9/4))
-                }
             }
         }.padding(.trailing)
     }
     
     func BackGround() -> some View {
         VStack(spacing: 0){
-            Color(uiColor: Color.darkBlue)
-            LinearGradient(colors: [Color(uiColor: Color.darkBlue), Color(uiColor: Color.orange)], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            switch Int(schedular.printGlobalTime(by: schedular.timezone, format: .hour))! {
+            case 22..<24:
+                BackGroundColors.nightTop
+                BackGroundColors.night
+            case 0..<2:
+                BackGroundColors.nightTop
+                BackGroundColors.lateNight
+            case 2..<4:
+                BackGroundColors.nightTop
+                BackGroundColors.dawn
+            case 4..<6:
+                BackGroundColors.earlyDawnTop
+                BackGroundColors.earlyDawn
+            case 6..<8:
+                BackGroundColors.night
+                BackGroundColors.earlyMorining
+            case 8..<10:
+                BackGroundColors.moringTop
+                BackGroundColors.moring
+            case 10..<12:
+                BackGroundColors.lunchTop
+                BackGroundColors.latelunch
+            case 12..<14:
+                BackGroundColors.lateLunchTop
+                BackGroundColors.latelunch
+            case 14..<16:
+                BackGroundColors.lunchTop
+                BackGroundColors.earlyNightfall
+            case 16..<18:
+                BackGroundColors.lunchTop
+                BackGroundColors.otherNightfall
+            case 18..<20:
+                BackGroundColors.dinnerTop
+                BackGroundColors.lateDinnerBottom
+            case 20..<22:
+                BackGroundColors.nightTop
+                BackGroundColors.nightBottom
+            default:
+                BackGroundColors.dinnerTop
+                BackGroundColors.lateDinnerBottom
+            }
         }.ignoresSafeArea()
     }
+
     
     func ChangeLocationButton() -> some View {
         Button {
-            isSearching.toggle()
+            isSearching = true
         } label: {
             RoundedRectangle(cornerRadius: 12)
-                .frame(height: 56)
+                .frame(height: UIScreen.deviceHeight * 0.068)
                 .foregroundColor(Color.black.opacity(0.2))
                 .overlay {
                     HStack {
-                        Text("국가 변경하기")
+                        Text("Change TimeZone")
+                            .font(.setBodyFont())
                     }
                 }
         }.padding(.vertical)
+    }
+    
+    //MARK: - methods
+    func showTimeGapSign() -> String {
+        if schedular.timeGap.signum() == 1 {
+            return "+"
+        }
+        else {
+            return ""
+        }
     }
 }
 

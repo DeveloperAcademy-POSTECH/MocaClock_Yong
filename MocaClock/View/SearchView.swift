@@ -8,50 +8,54 @@
 import SwiftUI
 
 
-#warning("Todo - 1. 서칭 기능추가")
-#warning("Todo - 2. 각 섹션에 들어갈 timezone 세팅 어떻게 햐애할지 전혀모르겟음")
-
-enum Continents: String, CaseIterable {
-    case Africa, America, Antarctica, Asia, Atlantic, Australia, GMT, Europe, Indian, Pacific
-}
-
 
 struct SearchView: View {
     @State private var searchText = ""
     @State private var isEditing = false
-    @State private var sections = Continents.allCases
-    @State private var timezone:[String:String] = [:]
+    @State private var cityNames: [[String]] = []
+    @EnvironmentObject var schedular: Scheduler
+    @Binding var isSearching: Bool
     
     var body: some View {
-        List {
-            ForEach(sections, id: \.self) { section in
-                Section {
-                    Text("hi")
-                } header: {
-                    Text(section.rawValue)
-                        .font(Font.title2)
-                        .foregroundColor(Color.black)
-                        .bold()
+        ScrollView {
+            LazyVStack {
+                SearchField()
+                    .padding(.bottom)
+                HStack {
+                    Text("Continent")
+                        .font(.setBodyFont())
+                    Spacer()
+                    Text("City")
+                        .font(.setBodyFont())
+                }.padding(.horizontal)
+                    .bold()
+                Divider()
+                ForEach(searchResult, id: \.self) { data in
+                    TableViewCell(timeIdentifier: data[0], city: data[2], continent: data[1], isSearching: $isSearching)
+                    Divider()
                 }
             }
-        }.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+        }.padding()
             .onAppear {
-                for time in TimeZone.knownTimeZoneIdentifiers {
-                    let citys: [String] = time.components(separatedBy: "/")
-                    switch citys.count {
-                    case 1:
-                        citys[0]
-                        print(citys[0])
-                    case 2:
-                        print(time.components(separatedBy: "/")[1])
-                    case 3:
-                        print("\(time.components(separatedBy: "/")[1]),  \(time.components(separatedBy: "/")[2])")
-                    default:
-                        print("")
-                    }
-                }
+                getAllCity()
+            }
+            .onDisappear {
+                isSearching = false
             }
     }
+    
+    var searchResult: [[String]] {
+        if searchText.isEmpty {
+            return cityNames
+        }
+        else {
+            return cityNames.filter{
+                String($0[2].lowercased()).contains(searchText.lowercased())
+            }
+        }
+    }
+    
+    
     func SearchField() -> some View {
         TextField("Search here...", text: $searchText)
             .padding(10)
@@ -59,6 +63,7 @@ struct SearchView: View {
             .background(Color(.systemGray6))
             .foregroundColor(.black)
             .cornerRadius(12)
+            .opacity(0.7)
             .overlay {
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -77,10 +82,14 @@ struct SearchView: View {
                 }
             }
     }
-}
-
-struct SearchView_Preview: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+//MARK: - methods
+    func getAllCity() {
+        let timeZoneIdentifiers = TimeZone.knownTimeZoneIdentifiers
+        for timeID in timeZoneIdentifiers {
+            guard let county = timeID.split(separator: "/").first else { return }
+            guard let city = timeID.split(separator: "/").last else { return }
+            cityNames.append([timeID, String(county), String(city)])
+        }
     }
 }
+
