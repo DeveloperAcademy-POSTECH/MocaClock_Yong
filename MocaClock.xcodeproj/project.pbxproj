@@ -25,6 +25,9 @@
 		0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */; };
 		0D214DFC2A4714DA00F46ED2 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */; };
 		0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2C5282A588C470028BCA3 /* TimeFormat.swift */; };
+		0DFE5C482A90E5FD001668EE /* Ext+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C472A90E5FD001668EE /* Ext+Font.swift */; };
+		0DFE5C4A2A90E7F6001668EE /* Ext+UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */; };
+		0DFE5C4C2A922439001668EE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C4B2A922439001668EE /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTimeView.swift; sourceTree = "<group>"; };
 		0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		0DF2C5282A588C470028BCA3 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		0DFE5C472A90E5FD001668EE /* Ext+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Font.swift"; sourceTree = "<group>"; };
+		0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIScreen.swift"; sourceTree = "<group>"; };
+		0DFE5C4B2A922439001668EE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,8 @@
 				0D214DAC2A2B857900F46ED2 /* Ext+Color.swift */,
 				0D214DA92A2B848000F46ED2 /* Ext+UIColor.swift */,
 				0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */,
+				0DFE5C472A90E5FD001668EE /* Ext+Font.swift */,
+				0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */,
 			);
 			path = "Ext+";
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0D214D772A2B7D0300F46ED2 /* ContentView.swift */,
+				0DF6CFE12A77D315007DF515 /* Components */,
 				0D214DAE2A2BBB4600F46ED2 /* SearchView.swift */,
 				0D214DB02A2BC54C00F46ED2 /* CurrentTimeView.swift */,
 				0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */,
@@ -180,6 +189,7 @@
 		0D214DA72A2B844800F46ED2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,9 +199,16 @@
 			children = (
 				0D214DB22A2C833500F46ED2 /* LocationManager.swift */,
 				0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */,
-				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0DF6CFE12A77D315007DF515 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0DFE5C4B2A922439001668EE /* TableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,11 +347,14 @@
 				0D214D782A2B7D0300F46ED2 /* ContentView.swift in Sources */,
 				0D214D822A2B7D0400F46ED2 /* MocaClock.xcdatamodeld in Sources */,
 				0D214DAF2A2BBB4600F46ED2 /* SearchView.swift in Sources */,
+				0DFE5C4A2A90E7F6001668EE /* Ext+UIScreen.swift in Sources */,
+				0DFE5C482A90E5FD001668EE /* Ext+Font.swift in Sources */,
 				0D214DAA2A2B848000F46ED2 /* Ext+UIColor.swift in Sources */,
 				0D214D762A2B7D0300F46ED2 /* MocaClockApp.swift in Sources */,
 				0D214DB12A2BC54C00F46ED2 /* CurrentTimeView.swift in Sources */,
 				0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */,
 				0D214DAD2A2B857900F46ED2 /* Ext+Color.swift in Sources */,
+				0DFE5C4C2A922439001668EE /* TableViewCell.swift in Sources */,
 				0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */,
 				0D214DB32A2C833500F46ED2 /* LocationManager.swift in Sources */,
 			);
@@ -511,7 +531,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it794613.MocaClock;
+				PRODUCT_BUNDLE_IDENTIFIER = it794613.mockclock.worldtimedifference;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -543,7 +563,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it794613.MocaClock;
+				PRODUCT_BUNDLE_IDENTIFIER = it794613.mockclock.worldtimedifference;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

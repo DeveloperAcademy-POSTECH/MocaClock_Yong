@@ -13,29 +13,29 @@ struct CurrentTimeView: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .trailing) {
                 Text(Time.printCurrentTime(format: TimeFormat.time))
-                    .font(.system(size: 60))
+                    .font(.setMainClockFont())
                     .bold()
-                    .padding(.bottom, 3)
                 Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
+                    .font(.setBodyFont())
+                HStack {
+                    Image("location_on")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16,height: 16)
+                        .font(.setLocationFont())
+                    Text("\(locationManager.currentPlacemark?.country ?? "reset the Location")")
+                        .font(.setBodyFont())
+                        .onAppear {
+                            locationManager.requestLocation()
+                        }
+                    Text("\(locationManager.currentPlacemark?.locality ?? "")")
+                        .font(.setBodyFont())
+                }
             }
-            Spacer()
-            HStack {
-                Image("location_on")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20,height: 20)
-                    .bold()
-                Text("\(locationManager.latitude), \(locationManager.longitude),\(locationManager.placeName)")
-                    .font(.system(size: 20))
-                    .bold()
-                    .task {
-                        await locationManager.forwardGeocoding(address: "Deagu")
-                        await locationManager.reverseGeocoding(latitude: locationManager.latitude, longitude: locationManager.longitude)
-                    }
-            }.offset(y: 40)
-        }
+        }.padding(.trailing, 10)
     }
 }
+
 

@@ -9,7 +9,6 @@ import Foundation
 import CoreLocation
 
 extension CLPlacemark {
-
     var address: String? {
         if let name = name {
             var result = name
@@ -23,5 +22,4 @@ extension CLPlacemark {
         }
         return nil
     }
-
 }

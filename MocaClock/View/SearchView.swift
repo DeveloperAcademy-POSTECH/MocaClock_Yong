@@ -7,32 +7,54 @@
 
 import SwiftUI
 
-//America, Africa, Antartica, Asia, Australia, Europe, Indian, Pacific
 
 
 struct SearchView: View {
     @State private var searchText = ""
     @State private var isEditing = false
-    @State private var continents = Set<String>()
-    @State private var countries: [[String]] = []
-    @State private var America: [String] = []
-    
+    @State private var cityNames: [[String]] = []
+    @EnvironmentObject var schedular: Scheduler
+    @Binding var isSearching: Bool
     
     var body: some View {
-        VStack {
-            SearchField().onTapGesture {
-                self.isEditing = true
-            }.padding()
-            List {
-                Text("hi")
-            }.onAppear {
-                for timeZone in TimeZone.knownTimeZoneIdentifiers {
-                    print(timeZone)
-                    print(timeZone.split(separator: "/"))
+        ScrollView {
+            LazyVStack {
+                SearchField()
+                    .padding(.bottom)
+                HStack {
+                    Text("Continent")
+                        .font(.setBodyFont())
+                    Spacer()
+                    Text("City")
+                        .font(.setBodyFont())
+                }.padding(.horizontal)
+                    .bold()
+                Divider()
+                ForEach(searchResult, id: \.self) { data in
+                    TableViewCell(timeIdentifier: data[0], city: data[2], continent: data[1], isSearching: $isSearching)
+                    Divider()
                 }
+            }
+        }.padding()
+            .onAppear {
+                getAllCity()
+            }
+            .onDisappear {
+                isSearching = false
+            }
+    }
+    
+    var searchResult: [[String]] {
+        if searchText.isEmpty {
+            return cityNames
+        }
+        else {
+            return cityNames.filter{
+                String($0[2].lowercased()).contains(searchText.lowercased())
             }
         }
     }
+    
     
     func SearchField() -> some View {
         TextField("Search here...", text: $searchText)
@@ -41,6 +63,7 @@ struct SearchView: View {
             .background(Color(.systemGray6))
             .foregroundColor(.black)
             .cornerRadius(12)
+            .opacity(0.7)
             .overlay {
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -59,10 +82,14 @@ struct SearchView: View {
                 }
             }
     }
-}
-
-struct SearchView_Preview: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+//MARK: - methods
+    func getAllCity() {
+        let timeZoneIdentifiers = TimeZone.knownTimeZoneIdentifiers
+        for timeID in timeZoneIdentifiers {
+            guard let county = timeID.split(separator: "/").first else { return }
+            guard let city = timeID.split(separator: "/").last else { return }
+            cityNames.append([timeID, String(county), String(city)])
+        }
     }
 }
+

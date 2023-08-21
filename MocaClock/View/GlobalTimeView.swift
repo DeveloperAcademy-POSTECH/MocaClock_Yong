@@ -15,25 +15,24 @@ struct GlobalTimeView: View {
     @ObservedObject var Time: Scheduler
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .trailing) {
             Text(Time.printGlobalTime(by: Time.timezone, format: TimeFormat.time))
-                .font(.system(size: 60))
+                .font(.setMainClockFont())
                 .bold()
-                .padding(.bottom, 3)
             Text([Time.printGlobalTime(by: Time.timezone, format: TimeFormat.month), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.date), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.week)].joined(separator: " "))
-                .font(.system(size: 16))
+                .font(.setBodyFont())
             HStack {
                 Image("location_on")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 20,height: 20)
-                    .bold()
+                    .frame(width: 16,height: 16)
+                    .font(.setLocationFont())
                 ForEach(Time.timezone.split(separator: "/"), id: \.self) {
                     Text($0)
+                        .font(.setBodyFont())
                 }
                 .frame(height: 20)
-                .bold()
             }
-        }
+        }.padding(.trailing, 10)
     }
 }

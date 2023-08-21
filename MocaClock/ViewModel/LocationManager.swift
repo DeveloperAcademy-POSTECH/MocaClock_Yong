@@ -10,57 +10,53 @@ import CoreLocation
 import MapKit
 
 
-final class LocationManager:  NSObject, ObservableObject {
+final class LocationManager:  NSObject, ObservableObject, CLLocationManagerDelegate {
+    @Published var authorizationStatus: CLAuthorizationStatus
     @Published var location: CLLocation?
-    @Published var latitude: Double = 0
-    @Published var longitude: Double = 0
-    @Published var placeName = ""
+    @Published var currentPlacemark: CLPlacemark?
+
     static let shared = LocationManager()
     private let locationManager = CLLocationManager()
     
     override init() {
+        authorizationStatus = locationManager.authorizationStatus
         super.init()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         locationManager.delegate = self
-//        locationManager.requestLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        requestPermission()
     }
     
 }
 
-extension LocationManager: CLLocationManagerDelegate {
+extension LocationManager {
     
-    @MainActor
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        self.location = location
+    func requestPermission() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        authorizationStatus = manager.authorizationStatus
     }
     
-    @MainActor
-    func forwardGeocoding(address: String) async {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.first
+        fetchCountryAndCity(for: locations.last)
+    }
+
+    func fetchCountryAndCity(for location: CLLocation?) {
+        guard let location = location else { return }
+        let local: Locale = Locale(identifier: "en_us")
         let geocoder = CLGeocoder()
-        var placemarks: [CLPlacemark] = []
-        do { placemarks = try await geocoder.geocodeAddressString(address) }
-        catch { print(error.localizedDescription) }
-        if let location = placemarks.first?.location {
-            self.latitude = location.coordinate.latitude
-            self.longitude = location.coordinate.longitude
-            }
+        geocoder.reverseGeocodeLocation(location, preferredLocale: local) { (placemarks, error) in
+            self.currentPlacemark = placemarks?.first
         }
+    }
+    func requestLocation() {
+           locationManager.requestLocation()
+    }
     
-    @MainActor
-    func reverseGeocoding(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async {
-        let geocoder = CLGeocoder()
-        var placemarks: [CLPlacemark] = []
-        let location = CLLocation(latitude: latitude, longitude: longitude)
-        do { placemarks = try await geocoder.reverseGeocodeLocation(location) }
-        catch {
-            print(error.localizedDescription)
-        }
-        if let location = placemarks.first?.address {
-            placeName = location
-        }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error")
     }
 }
