@@ -57,7 +57,7 @@ struct BackGroundColors {
     static var lateLunchTop = LinearGradient(colors: [Color(uiColor: Color.indigo), Color(uiColor: Color.skyBlue)], startPoint: .top, endPoint: .bottom)
     static var earlyNightfall = LinearGradient(colors: [Color(uiColor: Color.skyBlue), Color(uiColor: Color.brightOrange)], startPoint: .top, endPoint: .bottom)
     static var nightfall = LinearGradient(colors: [Color(uiColor: Color.skyBlue), Color(uiColor: Color.newDarkOrnage)], startPoint: .top, endPoint: .bottom)
-    static var otherNightfall = LinearGradient(colors: [Color(uiColor: Color.skyBlue), Color(uiColor: Color.earlyNightFallOrange)], startPoint: .top, endPoint: .bottom)
+    static var otherNightfall = LinearGradient(colors: [Color(uiColor: Color.deepBlue), Color(uiColor: Color.earlyNightFallOrange)], startPoint: .top, endPoint: .bottom)
     
     
     static var dinnerTop = LinearGradient(colors: [Color(uiColor: Color.darkBlue), Color(uiColor: Color.deepBlue)], startPoint: .top, endPoint: .bottom)

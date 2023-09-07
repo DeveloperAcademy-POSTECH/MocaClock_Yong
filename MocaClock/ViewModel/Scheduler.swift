@@ -12,7 +12,8 @@ final class Scheduler: ObservableObject {
     @Published var date = Date()
     @Published var timeGap = 0
     @Published var timezone = "Africa/Algiers"
-    @AppStorage("currentSelectedGlobalTime") var currentSelectedGlobalTime = "Africa/Algiers"
+    @AppStorage("timeZoneID") var currentSelectedGlobalTime = "Africa/Algiers"
+    
     
     func printGlobalTime(by timezone: String, format: TimeFormat) -> String {
         let timezone = TimeZone(identifier: timezone)
@@ -25,6 +26,7 @@ final class Scheduler: ObservableObject {
         case .month: return "\(formatter.string(from: date))"
         case .time: return formatter.string(from: date)
         case .week: return formatter.string(from: date)
+        case .widgetDate: return formatter.string(from: date)
         }
     }
     
@@ -37,6 +39,7 @@ final class Scheduler: ObservableObject {
         case .month: return "\(formatter.string(from: date))"
         case .time: return formatter.string(from: date)
         case .week: return formatter.string(from: date)
+        case .widgetDate: return formatter.string(from: date)
         }
     }
     

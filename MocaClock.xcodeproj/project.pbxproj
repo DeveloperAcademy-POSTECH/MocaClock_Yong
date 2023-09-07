@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00F8162A97EE3A004D3688 /* MocaClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481CB2A978F4B00892979 /* MocaClockWidget.swift */; };
+		0D00F8192A97EE4F004D3688 /* Ext+UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */; };
+		0D00F81A2A97EED3004D3688 /* MocaClockWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481C72A978F4B00892979 /* MocaClockWidgetBundle.swift */; };
+		0D00F81B2A97F239004D3688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D214D792A2B7D0400F46ED2 /* Assets.xcassets */; };
+		0D00F81F2A99DA60004D3688 /* Ext+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F81E2A99DA60004D3688 /* Ext+UserDefaults.swift */; };
+		0D00F8202A99DA60004D3688 /* Ext+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F81E2A99DA60004D3688 /* Ext+UserDefaults.swift */; };
+		0D00F8292A9B974B004D3688 /* UserdefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F8282A9B974B004D3688 /* UserdefaultKey.swift */; };
+		0D00F82A2A9B974B004D3688 /* UserdefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F8282A9B974B004D3688 /* UserdefaultKey.swift */; };
 		0D214D762A2B7D0300F46ED2 /* MocaClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214D752A2B7D0300F46ED2 /* MocaClockApp.swift */; };
 		0D214D782A2B7D0300F46ED2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214D772A2B7D0300F46ED2 /* ContentView.swift */; };
 		0D214D7A2A2B7D0400F46ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D214D792A2B7D0400F46ED2 /* Assets.xcassets */; };
@@ -24,6 +32,20 @@
 		0D214DB52A2DEB1300F46ED2 /* Ext+CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */; };
 		0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */; };
 		0D214DFC2A4714DA00F46ED2 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */; };
+		0D5481C32A978F4B00892979 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5481C22A978F4B00892979 /* WidgetKit.framework */; };
+		0D5481C52A978F4B00892979 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5481C42A978F4B00892979 /* SwiftUI.framework */; };
+		0D5481CA2A978F4B00892979 /* MocaClockWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481C92A978F4B00892979 /* MocaClockWidgetLiveActivity.swift */; };
+		0D5481CC2A978F4B00892979 /* MocaClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481CB2A978F4B00892979 /* MocaClockWidget.swift */; };
+		0D5481CF2A978F4D00892979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D5481CE2A978F4D00892979 /* Assets.xcassets */; };
+		0D5481D12A978F4D00892979 /* MocaClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481CD2A978F4B00892979 /* MocaClockWidget.intentdefinition */; };
+		0D5481D22A978F4D00892979 /* MocaClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0D5481CD2A978F4B00892979 /* MocaClockWidget.intentdefinition */; };
+		0D5481D52A978F4D00892979 /* MocaClockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D5481C02A978F4B00892979 /* MocaClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D5481DE2A97C19D00892979 /* Ext+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DAC2A2B857900F46ED2 /* Ext+Color.swift */; };
+		0D5481DF2A97C1A200892979 /* Ext+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DA92A2B848000F46ED2 /* Ext+UIColor.swift */; };
+		0D5482342A97DCFD00892979 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2C5282A588C470028BCA3 /* TimeFormat.swift */; };
+		0D5482352A97DD0400892979 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */; };
+		0D5482362A97DD5E00892979 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C4B2A922439001668EE /* TableViewCell.swift */; };
+		0D5482372A97E63700892979 /* Ext+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C472A90E5FD001668EE /* Ext+Font.swift */; };
 		0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF2C5282A588C470028BCA3 /* TimeFormat.swift */; };
 		0DFE5C482A90E5FD001668EE /* Ext+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C472A90E5FD001668EE /* Ext+Font.swift */; };
 		0DFE5C4A2A90E7F6001668EE /* Ext+UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */; };
@@ -45,9 +67,34 @@
 			remoteGlobalIDString = 0D214D712A2B7D0300F46ED2;
 			remoteInfo = MocaClock;
 		};
+		0D5481D32A978F4D00892979 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D214D6A2A2B7D0300F46ED2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D5481BF2A978F4B00892979;
+			remoteInfo = MocaClockWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0D5481D62A978F4D00892979 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0D5481D52A978F4D00892979 /* MocaClockWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0D00F81C2A97F511004D3688 /* MocaClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MocaClock.entitlements; sourceTree = "<group>"; };
+		0D00F81D2A99D490004D3688 /* MocaClockWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MocaClockWidgetExtension.entitlements; sourceTree = "<group>"; };
+		0D00F81E2A99DA60004D3688 /* Ext+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UserDefaults.swift"; sourceTree = "<group>"; };
+		0D00F8282A9B974B004D3688 /* UserdefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultKey.swift; sourceTree = "<group>"; };
 		0D214D722A2B7D0300F46ED2 /* MocaClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MocaClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D214D752A2B7D0300F46ED2 /* MocaClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocaClockApp.swift; sourceTree = "<group>"; };
 		0D214D772A2B7D0300F46ED2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +116,15 @@
 		0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CLPlacemark.swift"; sourceTree = "<group>"; };
 		0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTimeView.swift; sourceTree = "<group>"; };
 		0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		0D5481C02A978F4B00892979 /* MocaClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MocaClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D5481C22A978F4B00892979 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0D5481C42A978F4B00892979 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0D5481C72A978F4B00892979 /* MocaClockWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocaClockWidgetBundle.swift; sourceTree = "<group>"; };
+		0D5481C92A978F4B00892979 /* MocaClockWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocaClockWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		0D5481CB2A978F4B00892979 /* MocaClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocaClockWidget.swift; sourceTree = "<group>"; };
+		0D5481CD2A978F4B00892979 /* MocaClockWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MocaClockWidget.intentdefinition; sourceTree = "<group>"; };
+		0D5481CE2A978F4D00892979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D5481D02A978F4D00892979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF2C5282A588C470028BCA3 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		0DFE5C472A90E5FD001668EE /* Ext+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Font.swift"; sourceTree = "<group>"; };
 		0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIScreen.swift"; sourceTree = "<group>"; };
@@ -97,15 +153,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D5481BD2A978F4B00892979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D5481C52A978F4B00892979 /* SwiftUI.framework in Frameworks */,
+				0D5481C32A978F4B00892979 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0D214D692A2B7D0300F46ED2 = {
 			isa = PBXGroup;
 			children = (
+				0D00F81D2A99D490004D3688 /* MocaClockWidgetExtension.entitlements */,
 				0D214D742A2B7D0300F46ED2 /* MocaClock */,
 				0D214D8B2A2B7D0500F46ED2 /* MocaClockTests */,
 				0D214D952A2B7D0500F46ED2 /* MocaClockUITests */,
+				0D5481C62A978F4B00892979 /* MocaClockWidget */,
+				0D5481C12A978F4B00892979 /* Frameworks */,
 				0D214D732A2B7D0300F46ED2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +184,7 @@
 				0D214D722A2B7D0300F46ED2 /* MocaClock.app */,
 				0D214D882A2B7D0500F46ED2 /* MocaClockTests.xctest */,
 				0D214D922A2B7D0500F46ED2 /* MocaClockUITests.xctest */,
+				0D5481C02A978F4B00892979 /* MocaClockWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +192,7 @@
 		0D214D742A2B7D0300F46ED2 /* MocaClock */ = {
 			isa = PBXGroup;
 			children = (
+				0D00F81C2A97F511004D3688 /* MocaClock.entitlements */,
 				0D214D752A2B7D0300F46ED2 /* MocaClockApp.swift */,
 				0DD5DF022A48AD2E00E3CB79 /* ViewModel */,
 				0D214DA72A2B844800F46ED2 /* Model */,
@@ -170,6 +240,7 @@
 				0D214DB42A2DEB1300F46ED2 /* Ext+CLPlacemark.swift */,
 				0DFE5C472A90E5FD001668EE /* Ext+Font.swift */,
 				0DFE5C492A90E7F6001668EE /* Ext+UIScreen.swift */,
+				0D00F81E2A99DA60004D3688 /* Ext+UserDefaults.swift */,
 			);
 			path = "Ext+";
 			sourceTree = "<group>";
@@ -178,10 +249,10 @@
 			isa = PBXGroup;
 			children = (
 				0D214D772A2B7D0300F46ED2 /* ContentView.swift */,
-				0DF6CFE12A77D315007DF515 /* Components */,
 				0D214DAE2A2BBB4600F46ED2 /* SearchView.swift */,
 				0D214DB02A2BC54C00F46ED2 /* CurrentTimeView.swift */,
 				0D214DF72A4701BC00F46ED2 /* GlobalTimeView.swift */,
+				0DFE5C4B2A922439001668EE /* TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,8 +261,31 @@
 			isa = PBXGroup;
 			children = (
 				0DF2C5282A588C470028BCA3 /* TimeFormat.swift */,
+				0D00F8282A9B974B004D3688 /* UserdefaultKey.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0D5481C12A978F4B00892979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D5481C22A978F4B00892979 /* WidgetKit.framework */,
+				0D5481C42A978F4B00892979 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D5481C62A978F4B00892979 /* MocaClockWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0D5481C72A978F4B00892979 /* MocaClockWidgetBundle.swift */,
+				0D5481C92A978F4B00892979 /* MocaClockWidgetLiveActivity.swift */,
+				0D5481CB2A978F4B00892979 /* MocaClockWidget.swift */,
+				0D5481CD2A978F4B00892979 /* MocaClockWidget.intentdefinition */,
+				0D5481CE2A978F4D00892979 /* Assets.xcassets */,
+				0D5481D02A978F4D00892979 /* Info.plist */,
+			);
+			path = MocaClockWidget;
 			sourceTree = "<group>";
 		};
 		0DD5DF022A48AD2E00E3CB79 /* ViewModel */ = {
@@ -201,14 +295,6 @@
 				0D214DFB2A4714DA00F46ED2 /* Scheduler.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0DF6CFE12A77D315007DF515 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				0DFE5C4B2A922439001668EE /* TableViewCell.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,10 +307,12 @@
 				0D214D6E2A2B7D0300F46ED2 /* Sources */,
 				0D214D6F2A2B7D0300F46ED2 /* Frameworks */,
 				0D214D702A2B7D0300F46ED2 /* Resources */,
+				0D5481D62A978F4D00892979 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0D5481D42A978F4D00892979 /* PBXTargetDependency */,
 			);
 			name = MocaClock;
 			productName = MocaClock;
@@ -267,6 +355,23 @@
 			productReference = 0D214D922A2B7D0500F46ED2 /* MocaClockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0D5481BF2A978F4B00892979 /* MocaClockWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D5481D92A978F4D00892979 /* Build configuration list for PBXNativeTarget "MocaClockWidgetExtension" */;
+			buildPhases = (
+				0D5481BC2A978F4B00892979 /* Sources */,
+				0D5481BD2A978F4B00892979 /* Frameworks */,
+				0D5481BE2A978F4B00892979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MocaClockWidgetExtension;
+			productName = MocaClockWidgetExtension;
+			productReference = 0D5481C02A978F4B00892979 /* MocaClockWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,6 +393,9 @@
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 0D214D712A2B7D0300F46ED2;
 					};
+					0D5481BF2A978F4B00892979 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 				};
 			};
 			buildConfigurationList = 0D214D6D2A2B7D0300F46ED2 /* Build configuration list for PBXProject "MocaClock" */;
@@ -306,6 +414,7 @@
 				0D214D712A2B7D0300F46ED2 /* MocaClock */,
 				0D214D872A2B7D0500F46ED2 /* MocaClockTests */,
 				0D214D912A2B7D0500F46ED2 /* MocaClockUITests */,
+				0D5481BF2A978F4B00892979 /* MocaClockWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -334,6 +443,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D5481BE2A978F4B00892979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D00F81B2A97F239004D3688 /* Assets.xcassets in Resources */,
+				0D5481CF2A978F4D00892979 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -341,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D00F8292A9B974B004D3688 /* UserdefaultKey.swift in Sources */,
 				0D214DFC2A4714DA00F46ED2 /* Scheduler.swift in Sources */,
 				0D214D7F2A2B7D0400F46ED2 /* Persistence.swift in Sources */,
 				0D214DB52A2DEB1300F46ED2 /* Ext+CLPlacemark.swift in Sources */,
@@ -350,13 +469,16 @@
 				0DFE5C4A2A90E7F6001668EE /* Ext+UIScreen.swift in Sources */,
 				0DFE5C482A90E5FD001668EE /* Ext+Font.swift in Sources */,
 				0D214DAA2A2B848000F46ED2 /* Ext+UIColor.swift in Sources */,
+				0D5481D22A978F4D00892979 /* MocaClockWidget.intentdefinition in Sources */,
 				0D214D762A2B7D0300F46ED2 /* MocaClockApp.swift in Sources */,
 				0D214DB12A2BC54C00F46ED2 /* CurrentTimeView.swift in Sources */,
 				0DF2C5292A588C470028BCA3 /* TimeFormat.swift in Sources */,
 				0D214DAD2A2B857900F46ED2 /* Ext+Color.swift in Sources */,
+				0D00F8162A97EE3A004D3688 /* MocaClockWidget.swift in Sources */,
 				0DFE5C4C2A922439001668EE /* TableViewCell.swift in Sources */,
 				0D214DF82A4701BC00F46ED2 /* GlobalTimeView.swift in Sources */,
 				0D214DB32A2C833500F46ED2 /* LocationManager.swift in Sources */,
+				0D00F81F2A99DA60004D3688 /* Ext+UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +499,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D5481BC2A978F4B00892979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D00F8202A99DA60004D3688 /* Ext+UserDefaults.swift in Sources */,
+				0D5482342A97DCFD00892979 /* TimeFormat.swift in Sources */,
+				0D5482352A97DD0400892979 /* Scheduler.swift in Sources */,
+				0D5482372A97E63700892979 /* Ext+Font.swift in Sources */,
+				0D00F81A2A97EED3004D3688 /* MocaClockWidgetBundle.swift in Sources */,
+				0D5481DE2A97C19D00892979 /* Ext+Color.swift in Sources */,
+				0D00F82A2A9B974B004D3688 /* UserdefaultKey.swift in Sources */,
+				0D5482362A97DD5E00892979 /* TableViewCell.swift in Sources */,
+				0D5481CA2A978F4B00892979 /* MocaClockWidgetLiveActivity.swift in Sources */,
+				0D00F8192A97EE4F004D3688 /* Ext+UIScreen.swift in Sources */,
+				0D5481D12A978F4D00892979 /* MocaClockWidget.intentdefinition in Sources */,
+				0D5481CC2A978F4B00892979 /* MocaClockWidget.swift in Sources */,
+				0D5481DF2A97C1A200892979 /* Ext+UIColor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -389,6 +531,11 @@
 			isa = PBXTargetDependency;
 			target = 0D214D712A2B7D0300F46ED2 /* MocaClock */;
 			targetProxy = 0D214D932A2B7D0500F46ED2 /* PBXContainerItemProxy */;
+		};
+		0D5481D42A978F4D00892979 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D5481BF2A978F4B00892979 /* MocaClockWidgetExtension */;
+			targetProxy = 0D5481D32A978F4D00892979 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -510,8 +657,11 @@
 		0D214D9D2A2B7D0500F46ED2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = MocaClock/MocaClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MocaClock/Preview Content\"";
@@ -520,30 +670,37 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/choejin-yong/Desktop/MocaClock_Yong/MocaClock/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보를 허용합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치정보를 허용합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "your location is used to show your location in the app, get latitude and longitude to estimate your region and timezone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it794613.mockclock.worldtimedifference;
+				PRODUCT_BUNDLE_IDENTIFIER = com.it794613.timeDifference;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0D214D9E2A2B7D0500F46ED2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = MocaClock/MocaClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MocaClock/Preview Content\"";
@@ -552,22 +709,26 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/choejin-yong/Desktop/MocaClock_Yong/MocaClock/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보를 허용합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치정보를 허용합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "your location is used to show your location in the app, get latitude and longitude to estimate your region and timezone";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it794613.mockclock.worldtimedifference;
+				PRODUCT_BUNDLE_IDENTIFIER = com.it794613.timeDifference;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -647,6 +808,62 @@
 			};
 			name = Release;
 		};
+		0D5481D72A978F4D00892979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MocaClockWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YPDFZL299R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MocaClockWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MocaClockWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.it794613.timeDifference.MocaClockWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D5481D82A978F4D00892979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MocaClockWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YPDFZL299R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MocaClockWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MocaClockWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.it794613.timeDifference.MocaClockWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,6 +899,15 @@
 			buildConfigurations = (
 				0D214DA32A2B7D0500F46ED2 /* Debug */,
 				0D214DA42A2B7D0500F46ED2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D5481D92A978F4D00892979 /* Build configuration list for PBXNativeTarget "MocaClockWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D5481D72A978F4D00892979 /* Debug */,
+				0D5481D82A978F4D00892979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

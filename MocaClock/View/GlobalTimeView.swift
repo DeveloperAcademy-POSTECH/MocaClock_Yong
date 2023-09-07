@@ -19,7 +19,7 @@ struct GlobalTimeView: View {
             Text(Time.printGlobalTime(by: Time.timezone, format: TimeFormat.time))
                 .font(.setMainClockFont())
                 .bold()
-            Text([Time.printGlobalTime(by: Time.timezone, format: TimeFormat.month), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.date), Time.printGlobalTime(by: Time.timezone, format: TimeFormat.week)].joined(separator: " "))
+            Text(Time.printGlobalTime(by: Time.timezone, format: .widgetDate))
                 .font(.setBodyFont())
             HStack {
                 Image("location_on")

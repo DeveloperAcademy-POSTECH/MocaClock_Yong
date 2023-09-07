@@ -14,10 +14,10 @@ struct CurrentTimeView: View {
     var body: some View {
         HStack {
             VStack(alignment: .trailing) {
-                Text(Time.printCurrentTime(format: TimeFormat.time))
+                Text(Time.printCurrentTime(format: .time))
                     .font(.setMainClockFont())
                     .bold()
-                Text([Time.printCurrentTime(format: TimeFormat.month), Time.printCurrentTime(format: TimeFormat.date), Time.printCurrentTime(format: TimeFormat.week)].joined(separator: " "))
+                Text(Time.printCurrentTime(format: .widgetDate))
                     .font(.setBodyFont())
                 HStack {
                     Image("location_on")

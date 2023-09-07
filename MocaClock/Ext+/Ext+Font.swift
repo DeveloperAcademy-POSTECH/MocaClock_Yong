@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import WidgetKit
+import Intents
 
 extension Font {
     static func setFontSize() -> Double {
+
         let height = UIScreen.main.bounds.height
         var size = 1.0
-
+    
         switch height {
         case 480.0: // Iphone 3,4S => 3.5 inch
             size = 0.85
@@ -48,7 +51,13 @@ extension Font {
     }
     
     static func setLocationFont() -> Font {
-        return Font.system(size: 16 * setFontSize(), weight: .light)
+        return Font.system(size: 14 * setFontSize(), weight: .regular)
+    }
+    static func setWidgetClockFont() -> Font {
+        return Font.system(size: 44 * setFontSize(), weight: .bold)
+    }
+    static func setWidgetDefaultFont() -> Font {
+        return Font.system(size: 11 * setFontSize(), weight: .regular)
     }
 }
 

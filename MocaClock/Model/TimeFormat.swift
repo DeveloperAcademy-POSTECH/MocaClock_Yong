@@ -8,7 +8,7 @@ import Foundation
 
 
 enum TimeFormat: CaseIterable {
-    case date, month, week, time, hour
+    case date, month, week, time, hour, widgetDate
 }
 
 extension TimeFormat {
@@ -19,6 +19,7 @@ extension TimeFormat {
         case .month: return "MMMM"
         case .time: return "HH:mm"
         case .week: return "EEEE"
+        case .widgetDate: return "MMMM dd EEEE"
         }
     }
 }

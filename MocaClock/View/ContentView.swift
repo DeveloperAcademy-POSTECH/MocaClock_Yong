@@ -54,6 +54,7 @@ struct ContentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 isShowText = true
             }
+
         }
         .onChange(of: isSearching) { _ in
             if isSearching {
@@ -69,9 +70,6 @@ struct ContentView: View {
         }
     }
     
-    //이런경우는 어떻게 분기를 나누느게 좋을까요?
-    // timeGap 에 따라서 현재 화면의 비율에서 % 별로 + - 로 이동해야하는데 애니메이션이 지금 이상하게 걸림.
-    // 여기 지오메트릭 리더 이상하게 고ㅓㄹ림. 문제.
     var TimePointer: some View {
         GeometryReader { proxy in
             let height = proxy.size.height
@@ -116,6 +114,36 @@ struct ContentView: View {
     func BackGround() -> some View {
         VStack(spacing: 0){
             switch Int(schedular.printGlobalTime(by: schedular.timezone, format: .hour))! {
+            /*
+             -
+             BackGroundColors.earlyDawnTop
+             BackGroundColors.earlyDawn
+             -
+             BackGroundColors.night
+             BackGroundColors.earlyMorining
+             -
+             BackGroundColors.moringTop
+             BackGroundColors.moring
+             -
+             BackGroundColors.lunchTop
+             BackGroundColors.latelunch
+             -
+             BackGroundColors.lateLunchTop
+             BackGroundColors.latelunch
+             -
+             BackGroundColors.lunchTop
+             BackGroundColors.earlyNightfall
+             -
+             BackGroundColors.lunchTop
+             BackGroundColors.otherNightfall
+             -
+             BackGroundColors.dinnerTop
+             BackGroundColors.lateDinnerBottom
+             -
+             BackGroundColors.nightTop
+             BackGroundColors.nightBottom
+             */
+                
             case 22..<24:
                 BackGroundColors.nightTop
                 BackGroundColors.night
@@ -144,7 +172,7 @@ struct ContentView: View {
                 BackGroundColors.lunchTop
                 BackGroundColors.earlyNightfall
             case 16..<18:
-                BackGroundColors.lunchTop
+                BackGroundColors.night
                 BackGroundColors.otherNightfall
             case 18..<20:
                 BackGroundColors.dinnerTop
